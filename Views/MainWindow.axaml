@@ -1,0 +1,62 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
+        x:Class="SaveScribe.Views.MainWindow"
+        Title="SaveScribe"
+        Width="850" Height="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#1E1E24"
+        Foreground="#F5F5F7">
+    <Grid RowDefinitions="Auto, *, Auto">
+        <!-- 1. Header Banner Panel -->
+        <Border Grid.Row="0" Background="#2A2A35" Padding="15" BorderBrush="#3A3A4A" BorderThickness="0,0,0,1">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <TextBlock Text="💾" FontSize="24" VerticalAlignment="Center"/>
+                <TextBlock Text="SaveScribe" FontSize="20" FontWeight="Bold" Foreground="#A8DADC" VerticalAlignment="Center"/>
+                <TextBlock Text="• Smart Automated Save Backups" FontSize="12" Foreground="#8D8D9A" VerticalAlignment="Center" Margin="5,4,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- 2. Main Workspace Content -->
+        <Grid Grid.Row="1" ColumnDefinitions="2*, 3*" Margin="15">
+            <!-- Left Side: Game Management List Panel -->
+            <Border Grid.Column="0" Background="#252530" CornerRadius="8" Padding="10">
+                <Grid RowDefinitions="Auto, *, Auto">
+                    <TextBlock Grid.Row="0" Text="Monitored Games" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#457B9D"/>
+                    
+                    <ListBox Grid.Row="1" Background="Transparent" BorderThickness="0"/>
+                    
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" Margin="0,10,0,0">
+                        <Button Content="Remove" Background="#E63946" Foreground="White" Padding="10,5"/>
+                        <Button Content="Add Game" Background="#457B9D" Foreground="White" Padding="10,5"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Right Side: Live Logging Activity Console -->
+            <Border Grid.Column="1" Background="#252530" CornerRadius="8" Padding="10" Margin="15,0,0,0">
+                <Grid RowDefinitions="Auto, *">
+                    <TextBlock Grid.Row="0" Text="Activity Log" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#A8DADC"/>
+                    <TextBox Grid.Row="1" 
+                             Background="#15151A" 
+                             Foreground="#00FF66" 
+                             FontFamily="Consolas,Monospace" 
+                             IsReadOnly="True" 
+                             TextWrapping="Wrap"
+                             PlaceholderText="System initialized. Awaiting game selection..."/>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- 3. Status Footer Bar -->
+        <Border Grid.Row="2" Background="#1A1A22" Padding="10,5" BorderBrush="#2A2A35" BorderThickness="0,1,0,0">
+            <Grid ColumnDefinitions="*, Auto">
+                <TextBlock Grid.Column="0" Text="Watcher Status: Active" FontSize="11" Foreground="#4AF626"/>
+                <TextBlock Grid.Column="1" Text="v2.0 (.NET 10)" FontSize="11" Foreground="#5D5D6A"/>
+            </Grid>
+        </Border>
+    </Grid>
+
+</Window>
